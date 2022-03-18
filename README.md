@@ -11,5 +11,5 @@
 ### 注意点:stuck_out_tongue_winking_eye:
 我用了两种不同的方法实现数据持久化，分别是[jdbc](https://github.com/rjc020201/aircraft_big_stand/blob/master/src/edu/hitsz/database/MySQLConect.java)和[文件读写](https://github.com/rjc020201/aircraft_big_stand/blob/master/src/edu/hitsz/database/TagDaoImplementByFile.java)，如果你的系统并未安装8.0以上版本mysql同时没有mysql的jar包那么就无法测试jdbc的方法，文件读写将生成三个数据文件来保存数据，当然如果生成文件有问题我还写了一个非持久化存储数据的[类](https://github.com/rjc020201/aircraft_big_stand/blob/master/src/edu/hitsz/database/TagDaoImplement1.java)，只要你将代码中对应的使用了TagDao的对象的位置修改为相应的类就可以了，最后一种方法无法保存游戏记录，每次运行都会刷新游戏记录
 
-### 欢迎及轻喷
+### 欢迎及轻喷:bomb:
 欢迎pr和star，有bug欢迎指正，good luck!!!:kissing_heart:
