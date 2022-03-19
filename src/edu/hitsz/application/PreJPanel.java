@@ -30,13 +30,25 @@ public class PreJPanel extends JPanel {
 
 
 
-        jList=new JComboBox(new String[]{"音乐:开", "音乐:关"});
-        jList.setPreferredSize(new Dimension(100,45));
+        JPanel bottom=new JPanel();
+        JLabel bottomJLabel=new JLabel("音乐");
+        bottomJLabel.setFont(new Font("Dialog",1,15));
+        bottomJLabel.setPreferredSize(new Dimension(50,50));
+        bottomJLabel.setForeground(Color.WHITE);
+        jList=new JComboBox(new String[]{"开", "关"});
+        jList.setPreferredSize(new Dimension(100,30));
+        jList.setFont(new Font("Dialog",1,15));
+
+        //修改底部的JPanel颜色使其透明化
+        bottom.setBackground(null);
+        bottom.setOpaque(false);
 
         this.add(easy);
         this.add(common);
         this.add(difficult);
-        this.add(jList);
+        bottom.add(bottomJLabel);
+        bottom.add(jList);
+        this.add(bottom);
 
         addListen(easy,1);
         addListen(common,2);

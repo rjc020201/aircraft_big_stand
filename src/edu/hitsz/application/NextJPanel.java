@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NextJPanel extends JPanel {
-    private static final String[] colum=new String[]{"name","score","time"};
+    private static final String[] colum=new String[]{"名次","名字","得分","记录的时间"};
     private JButton jb1=new JButton("不服，删除记录");
     private JButton jb2=new JButton("不服，再来一局");
     private JLabel jlHead;
@@ -44,7 +44,8 @@ public class NextJPanel extends JPanel {
                 String getname1=table.getValueAt(count,0).toString();
                 String getname2=table.getValueAt(count,1).toString();
                 String getname3=table.getValueAt(count,2).toString();
-                deleteData(new Tag(difficult,getname1,Integer.valueOf(getname2),getname3));
+                String getname4=table.getValueAt(count,3).toString();
+                deleteData(new Tag(difficult,getname2,Integer.valueOf(getname3),getname4));
                 InitRemove();
                 init();
                 JFrameMain.getInstance().revalidate();
@@ -87,7 +88,21 @@ public class NextJPanel extends JPanel {
                 }
             }
         }
+
+        for(int i=0;i<len;i++){
+            str[i]=changeString(str[i],i+1);
+        }
         return str;
+    }
+
+    public String[] changeString(String[] str,int order){
+        int len=str.length;
+        String[] newStr=new String[len+1];
+        newStr[0]=order+"";
+        for(int i=0;i<len;i++){
+            newStr[i+1]=str[i];
+        }
+        return newStr;
     }
 
     public void deleteData(Tag tag){

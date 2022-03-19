@@ -5,12 +5,18 @@ public class Tag {
     private String name;
     private int score;
     private String time;
+    private int order;
 
-    public Tag(int difficult, String name, int score, String time) {
+    public Tag(int difficult,String name, int score, String time) {
+        this.order=order;
         this.difficult = difficult;
         this.name = name;
         this.score = score;
         this.time = time;
+    }
+
+    public int getOrder(){
+        return order;
     }
 
     public String getName() {

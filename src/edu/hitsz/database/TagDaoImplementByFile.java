@@ -59,7 +59,6 @@ public class TagDaoImplementByFile implements TagDao{
         if(!file.exists()){
             try {
                 file.createNewFile();
-//                file.delete();
                 System.out.println(file.getName()+"产生了");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -137,7 +136,6 @@ public class TagDaoImplementByFile implements TagDao{
             e.printStackTrace();
         }
         File targetFile=null;
-//        this.difficultFile.delete();
         switch (tag.getDifficult()){
             case 1:
                 targetFile=easyFile;
@@ -150,7 +148,6 @@ public class TagDaoImplementByFile implements TagDao{
                 break;
             default:;
         }
-//        targetFile.delete();
         String str=tag.getName()+" "+tag.getScore()+" "+tag.getTime();
         try {
             BufferedWriter tmpbw=new BufferedWriter(new FileWriter(tmpFile));
@@ -178,24 +175,10 @@ public class TagDaoImplementByFile implements TagDao{
             tmpbw.flush();
             tmpbw.close();
             targetbw.close();
-//            if(targetFile.exists()){
-//                System.out.println("文件活着");
-//            }
-//            if(targetFile.delete()){
-//                System.out.println("删除了文件");
-//            }
             targetFile.delete();
             tmpFile.renameTo(targetFile);
-//            tmpFile.delete();
-//            System.out.println("重新命名了这个文件");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-//        TagDaoImplementByFile tagDaoImplementByFile=TagDaoImplementByFile.getInstance();
-//        tagDaoImplementByFile.deleteTag(new Tag(1,"飞洒",0,"1s"));
-//        tagDaoImplementByFile.easyFile.delete();
     }
 }
